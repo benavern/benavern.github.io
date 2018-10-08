@@ -1,7 +1,11 @@
 <template>
   <aside>
     <header id="sidebar-header">
-      Benjamin Caradeuc
+      <router-link
+        class="header-link"
+        to="/">
+        Benjamin Caradeuc
+      </router-link>
     </header>
 
     <div id="sidebar-content">
@@ -43,6 +47,10 @@ aside {
     border-bottom: 1px solid rgba(black, 0.2);
     height: 50px;
     text-align: center;
+
+    .header-link {
+      text-decoration: none;
+    }
   }
 
   #sidebar-content {

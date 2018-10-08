@@ -15,7 +15,9 @@
       <slot></slot>
     </div>
 
-    <footer id="content-footer">
+    <footer
+      v-if="$route.name === 'subject'"
+      id="content-footer">
       content footer
     </footer>
   </main>
@@ -32,7 +34,7 @@ export default {
           const user = this.state.users.find(user => user.subject.name === this.$route.params.subject)
 
           titleContent = {
-            title: user.name && user.name.fullName,
+            title: user && user.name && user.name.fullName,
             subtitle: this.$route.params.subject
           }
           break

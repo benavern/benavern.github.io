@@ -4,8 +4,6 @@ import api from './utils/api.js'
 import subjects from './utils/subjects'
 import { capitalize } from './utils/helpers'
 
-console.log(capitalize('coucou'))
-
 Vue.use(store)
 
 export default new store.Store({

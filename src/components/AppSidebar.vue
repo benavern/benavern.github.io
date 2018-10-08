@@ -1,7 +1,7 @@
 <template>
   <aside>
     <header id="sidebar-header">
-      sidebar header
+      Benjamin Caradeuc
     </header>
 
     <div id="sidebar-content">
@@ -42,6 +42,7 @@ aside {
     padding: 10px;
     border-bottom: 1px solid rgba(black, 0.2);
     height: 50px;
+    text-align: center;
   }
 
   #sidebar-content {

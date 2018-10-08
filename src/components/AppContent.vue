@@ -6,7 +6,9 @@
         <small>{{ headerTitle.subtitle }}</small>
       </div>
 
-      <div class="header-actions"></div>
+      <div class="header-actions">
+        header actions
+      </div>
     </header>
 
     <div id="content-content">

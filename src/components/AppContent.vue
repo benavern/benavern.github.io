@@ -1,11 +1,16 @@
 <template>
   <main>
     <header id="content-header">
-      content header
+      <div class="header-title">
+        <div class="title">{{ headerTitle.title }}</div>
+        <small>{{ headerTitle.subtitle }}</small>
+      </div>
+
+      <div class="header-actions"></div>
     </header>
 
     <div id="content-content">
-        <slot></slot>
+      <slot></slot>
     </div>
 
     <footer id="content-footer">
@@ -16,7 +21,28 @@
 
 <script>
 export default {
-  name: 'AppContent'
+  name: 'AppContent',
+  computed: {
+    headerTitle () {
+      let titleContent
+      switch(this.$route.name) {
+        case 'subject':
+          const user = this.state.users.find(user => user.subject.name === this.$route.params.subject)
+
+          titleContent = {
+            title: user.name && user.name.fullName,
+            subtitle: this.$route.params.subject
+          }
+          break
+        default:
+          titleContent = {
+            title: 'Benjamin Caradeuc',
+            subtitle: 'Ingénieur Web - Lead développeur'
+          }
+      }
+      return titleContent
+    }
+  }
 }
 </script>
 
@@ -26,9 +52,25 @@ main {
   flex-direction: column;
 
   #content-header {
-    padding: 10px;
+    display: flex;
     border-bottom: 1px solid rgba(black, .2);
     height: 50px;
+
+    .header-title {
+      padding: 10px;
+      flex: 1;
+      padding-left: 150px;
+      line-height: 1;
+      text-align: center;
+
+      small {
+        color: #999;
+      }
+    }
+
+    .header-actions {
+      width: 150px;
+    }
   }
 
   #content-content {

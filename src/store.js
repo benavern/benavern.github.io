@@ -2,6 +2,9 @@ import Vue from 'vue'
 import store from './utils/store'
 import api from './utils/api.js'
 import subjects from './utils/subjects'
+import { capitalize } from './utils/helpers'
+
+console.log(capitalize('coucou'))
 
 Vue.use(store)
 
@@ -18,11 +21,17 @@ export default new store.Store({
     }
   },
   mutations: {
-    SET_USERS (state, users) {
-      users.map((user, i) => {
-        user['subject'] = state.subjects[i]
-        return user
-      })
+    SET_USERS (state, data) {
+      const users = data.map((user, i) => ({
+        ...user,
+        subject: state.subjects[i],
+        name: {
+          title: capitalize(user.name.title),
+          first: capitalize(user.name.first),
+          last: capitalize(user.name.last),
+          fullName: `${capitalize(user.name.first)} ${capitalize(user.name.last)}`
+        }
+      }))
       Vue.set(state, 'users', users)
     }
   }

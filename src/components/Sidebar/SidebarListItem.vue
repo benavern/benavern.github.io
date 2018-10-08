@@ -2,15 +2,15 @@
   <router-link
     class="sidebar-list-item"
     :to="{ name: 'subject', params: { subject: user.subject.name }}"
-    :title="`Conversation avec ${fullName}`">
+    :title="`Conversation avec ${user.name.fullName}`">
     <div class="item-avatar">
       <img
         :src="user.picture.large"
-        :alt="`Avatar for ${fullName}`">
+        :alt="`Avatar for ${user.name.fullName}`">
     </div>
 
     <div class="item-content">
-      <div class="full-name">{{ fullName }}</div>
+      <div class="full-name">{{ user.name.fullName }}</div>
       <small class="last-message">{{ user.subject.messages[0] }}</small>
     </div>
 
@@ -19,21 +19,10 @@
 </template>
 
 <script>
-
 export default {
   name: 'SidebarListItem',
   props: {
     user: Object
-  },
-  computed: {
-    fullName () {
-      return `${this.capitalize(this.user.name.first)} ${this.capitalize(this.user.name.last)}`
-    }
-  },
-  methods: {
-    capitalize (text) {
-      return text.replace(/(?:^|\s)\S/g, a => a.toUpperCase())
-    }
   }
 }
 </script>

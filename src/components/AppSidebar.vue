@@ -1,9 +1,54 @@
 <template>
-  <h1>Sidebar</h1>
+  <aside>
+    <header id="sidebar-header">
+      sidebar header
+    </header>
+
+    <div id="sidebar-content">
+      <div class="scroll-section">
+        <div class="sidebar-list">
+          <sidebar-list-item
+            v-for="(user, i) in users"
+            :key="i"
+            :user="user">
+          </sidebar-list-item>
+        </div>
+      </div>
+    </div>
+  </aside>
 </template>
 
 <script>
+import SidebarListItem from "./Sidebar/SidebarListItem";
+
 export default {
-  name: 'AppSidebar'
+  name: "AppSidebar",
+  components: { SidebarListItem },
+  computed: {
+    users () {
+      return this.state.users
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+aside {
+  border-right: 1px solid rgba(black, 0.2);
+  display: flex;
+  flex-direction: column;
+
+  #sidebar-header {
+    padding: 10px;
+    border-bottom: 1px solid rgba(black, 0.2);
+    height: 50px;
+  }
+
+  #sidebar-content {
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
+  }
+}
+</style>
+

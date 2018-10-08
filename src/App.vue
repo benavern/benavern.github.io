@@ -1,32 +1,61 @@
 <template>
   <div id="app-wrapper">
-    <app-header></app-header>
-    <app-sidebar></app-sidebar>
-    <main>
+    <app-sidebar id="app-sidebar"></app-sidebar>
+    <app-content id="app-content">
       <router-view></router-view>
-    </main>
+    </app-content>
   </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader'
 import AppSidebar from './components/AppSidebar'
+import AppContent from './components/AppContent'
 
 export default {
   name: "App",
-  components: { AppHeader, AppSidebar }
+  components: { AppSidebar, AppContent },
+  mounted () {
+    this.$store.dispatch('FETCH_USERS')
+  }
 }
 </script>
 
-<style lang="scss">
+<style>
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
 html {
-  font-size: 100%;
+  font-size: 16px;
 }
 body {
   font-family: sans-serif;
-  color: pink;
+  color: #333;
+  line-height: 1.6;
 }
+
 [v-cloak] {
   display: none;
+}
+</style>
+
+<style lang="scss" scoped>
+#app-wrapper {
+  display: flex;
+  height: 100%;
+}
+#app-sidebar {
+  width: 25%;
+  max-width: 500px;
+}
+#app-content {
+  flex: 1;
 }
 </style>

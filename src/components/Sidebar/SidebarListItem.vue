@@ -11,8 +11,8 @@
 
     <div class="item-content">
       <div class="full-name">{{ user.name.fullName }}</div>
-      <small class="last-message">
-        {{ lastMessage.received ? user.name.first : 'Vous' }}: {{ lastMessage.text }}
+      <small class="subject">
+        {{ user.subject.name }}
         </small>
     </div>
 
@@ -25,12 +25,6 @@ export default {
   name: 'SidebarListItem',
   props: {
     user: Object
-  },
-  computed: {
-    lastMessage () {
-      const messages = this.user.subject.messages
-      return messages[messages.length - 1]
-    }
   }
 }
 </script>
@@ -64,7 +58,7 @@ export default {
     overflow: hidden;
 
     .full-name,
-    .last-message {
+    .subject {
       display: block;
       min-width: 0;
       overflow: hidden;
@@ -72,7 +66,7 @@ export default {
       white-space: nowrap;
     }
 
-    .last-message {
+    .subject {
       color: #999;
     }
   }

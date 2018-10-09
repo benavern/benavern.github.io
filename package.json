@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo 'testing is not beeing confident'",
     "dev": "parcel src/index.html",
-    "predeploy": "parcel build src/index.html",
+    "build": "parcel build src/index.html",
+    "predeploy": "rimraf dist && npm run build",
     "deploy": "gh-pages -d dist -b master"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.10.2",
     "parcel-plugin-eslint": "^1.0.4",
+    "rimraf": "^2.6.2",
     "sass": "^1.14.1",
     "vue-template-compiler": "^2.5.17"
   },

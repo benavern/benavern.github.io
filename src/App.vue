@@ -38,7 +38,7 @@ html {
 body {
   font-family: sans-serif;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 [v-cloak] {
@@ -53,7 +53,7 @@ body {
 }
 #app-sidebar {
   width: 25%;
-  max-width: 500px;
+  max-width: 400px;
 }
 #app-content {
   flex: 1;

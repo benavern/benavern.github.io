@@ -11,7 +11,9 @@
 
     <div class="item-content">
       <div class="full-name">{{ user.name.fullName }}</div>
-      <small class="last-message">{{ user.subject.messages[0] }}</small>
+      <small class="last-message">
+        {{ lastMessage.received ? user.name.first : 'Vous' }}: {{ lastMessage.text }}
+        </small>
     </div>
 
     <div class="item-actions"></div>
@@ -23,6 +25,12 @@ export default {
   name: 'SidebarListItem',
   props: {
     user: Object
+  },
+  computed: {
+    lastMessage () {
+      const messages = this.user.subject.messages
+      return messages[messages.length - 1]
+    }
   }
 }
 </script>
@@ -32,8 +40,8 @@ export default {
   display: flex;
   padding: 10px;
   text-decoration: none;
-  height: 70px;
   color: #333;
+  align-items: center;
 
   &:hover,
   &.router-link-active {
@@ -44,6 +52,7 @@ export default {
     margin-right: 10px;
 
     img {
+      display: block;
       border-radius: 50px;
       width: 50px;
       height: 50px;

@@ -1,11 +1,14 @@
 <template>
 <div class="subject-content">
-  <h1>subject</h1>
-  <p
+  <div
     v-for="message in messages"
-    :key="message.name">
-    {{ message }}
-  </p>
+    :key="message.name"
+    :class="['message-wrapper', message.received ? 'received' : 'sent']">
+    <div
+      class="message"
+      v-html="message.text">
+    </div>
+  </div>
 </div>
 </template>
 
@@ -15,11 +18,83 @@ export default {
   props: {
     subject: String
   },
+  watch: {
+    '$route' (to, from) {
+      clearInterval(this.interval)
+      this.messages = []
+      this.subjectIndex = 0
+      this.start()
+    }
+  },
+  data () {
+    return {
+      messages: [],
+      subjectIndex: 0,
+      interval: null
+    }
+  },
   computed: {
-    messages () {
+    subjectMessages () {
       const subject = this.state.subjects.find(subject => subject.name === this.subject) || []
       return subject.messages
     }
+  },
+  methods: {
+    start() {
+      this.interval = setInterval(() => {
+        const message = this.subjectMessages[this.subjectIndex++]
+        if (message) {
+          this.displayMessage(message)
+        } else {
+          clearInterval(this.interval)
+        }
+      }, 2000)
+    },
+    displayMessage(message) {
+      this.messages.push(message)
+    }
+  },
+  mounted () {
+    this.start()
+  },
+  beforeDestroy () {
+    clearInterval(this.interval)
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.subject-content {
+  padding: 20px 10px;
+
+  .message-wrapper {
+    margin: 3px 0;
+
+    .message {
+      display: inline-block;
+      max-width: 60%;
+      padding: .2em 1em;
+    }
+
+    &.sent {
+      text-align: right;
+
+      .message{
+        background-color: #0084ff;
+        color: white;
+        border-radius: 1em 1em .3em 1em;
+      }
+    }
+
+    &.received .message {
+      background-color: rgba(black, .05);
+      border-radius: 1em 1em 1em .3em;
+    }
+
+  }
+  .received + .sent,
+  .sent + .received {
+    margin-top: 10px;
+  }
+}
+</style>

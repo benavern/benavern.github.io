@@ -69,15 +69,15 @@ export default {
 
   .message-wrapper {
     margin: 3px 0;
+    display: flex;
 
     .message {
-      display: inline-block;
-      max-width: 60%;
       padding: .2em 1em;
+      max-width: 70%;
     }
 
     &.sent {
-      text-align: right;
+      justify-content: flex-end;
 
       .message{
         background-color: #0084ff;
@@ -92,6 +92,8 @@ export default {
     }
 
   }
+
+  // margin between blocks of messages
   .received + .sent,
   .sent + .received {
     margin-top: 10px;

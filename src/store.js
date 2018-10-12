@@ -9,7 +9,8 @@ Vue.use(store)
 export default new store.Store({
   state: {
     users: [],
-    subjects
+    subjects,
+    messages: []
   },
   actions: {
     FETCH_USERS ({ state, commit }) {
@@ -31,6 +32,12 @@ export default new store.Store({
         }
       }))
       Vue.set(state, 'users', users)
+    },
+    SET_MESSAGE (state, message) {
+      state.messages.push(message)
+    },
+    RESET_MESSAGES (state) {
+      Vue.set(state, 'messages', [])
     }
   }
 })

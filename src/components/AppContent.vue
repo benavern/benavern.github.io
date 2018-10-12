@@ -18,14 +18,19 @@
     <footer
       v-if="$route.name === 'subject'"
       id="content-footer">
-      content footer
+      <message-input
+        class="message-input">
+      </message-input>
     </footer>
   </main>
 </template>
 
 <script>
+import MessageInput from './Content/MessageInput'
+
 export default {
   name: 'AppContent',
+  components: { MessageInput },
   computed: {
     headerTitle () {
       let titleContent
@@ -84,9 +89,13 @@ main {
   }
 
   #content-footer {
-    padding: 10px;
+    display: flex;
     border-top: 1px solid rgba(black, .2);
     height: 50px;
+
+    .message-input {
+      flex: 1;
+    }
   }
 }
 </style>

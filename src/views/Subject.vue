@@ -3,7 +3,7 @@
   <div
     v-for="message in messages"
     :key="message.name"
-    :class="['message-wrapper', message.received ? 'received' : 'sent']">
+    :class="['message-wrapper', message.received ? 'received' : 'sent', {'user' : message.user}]">
     <div
       class="message"
       v-html="message.text">
@@ -21,14 +21,13 @@ export default {
   watch: {
     '$route' (to, from) {
       clearInterval(this.interval)
-      this.messages = []
+      this.$store.commit('RESET_MESSAGES')
       this.subjectIndex = 0
       this.start()
     }
   },
   data () {
     return {
-      messages: [],
       subjectIndex: 0,
       interval: null
     }
@@ -37,6 +36,9 @@ export default {
     subjectMessages () {
       const subject = this.state.subjects.find(subject => subject.name === this.subject) || []
       return subject.messages
+    },
+    messages () {
+      return this.state.messages
     }
   },
   methods: {
@@ -51,7 +53,7 @@ export default {
       }, 2000)
     },
     displayMessage(message) {
-      this.messages.push(message)
+      this.$store.commit('SET_MESSAGE', message)
     }
   },
   mounted () {
@@ -84,12 +86,19 @@ export default {
         color: white;
         border-radius: 1em 1em .3em 1em;
       }
+
+      &.user .message {
+        background-color: #bada55;
+        color: white;
+      }
+
     }
 
     &.received .message {
       background-color: rgba(black, .05);
       border-radius: 1em 1em 1em .3em;
     }
+
 
   }
 

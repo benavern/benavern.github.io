@@ -9,28 +9,49 @@
     </header>
 
     <div id="sidebar-content">
-      <div class="scroll-section">
-        <div class="sidebar-list">
-          <sidebar-list-item
-            v-for="(user, i) in users"
-            :key="i"
-            :user="user">
-          </sidebar-list-item>
-        </div>
+      <div class="sidebar-filter">
+        <sidebar-filter
+          @filter="setFilter">
+        </sidebar-filter>
       </div>
+
+      <div class="sidebar-list">
+        <sidebar-list-item
+          v-for="(user, i) in users"
+          :key="i"
+          :user="user">
+        </sidebar-list-item>
+      </div>
+    </div>
     </div>
   </aside>
 </template>
 
 <script>
-import SidebarListItem from "./Sidebar/SidebarListItem";
+import SidebarListItem from "./Sidebar/SidebarListItem"
+import SidebarFilter from "./Sidebar/SidebarFilter"
 
 export default {
   name: "AppSidebar",
-  components: { SidebarListItem },
+  components: { SidebarListItem, SidebarFilter },
+  data () {
+    return {
+      filterVal: null
+    }
+  },
   computed: {
     users () {
       return this.state.users
+        .filter(user => !this.filterVal || this.filterVal.length < 3 || !user.subject || user.subject.name.toLowerCase().includes(this.filterVal.toLowerCase()))
+    }
+  },
+  methods: {
+    setFilter (val) {
+      if(val === '') {
+        this.filterVal = null
+      } else {
+        this.filterVal = val
+      }
     }
   }
 }

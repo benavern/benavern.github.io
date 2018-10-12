@@ -29,7 +29,7 @@ export default {
   methods: {
     pushMessage () {
       const message = { ...this.message }
-      message.text = String(message.text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+      message.text = String(message.text).trim().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
       this.$store.commit('SET_MESSAGE', message)
       this.message.text = ''
     }
@@ -46,10 +46,11 @@ export default {
     width: 100%;
     height: 50px;
     padding: 10px;
+
+    &::placeholder {
+      color: #ddd;
+      font-size: .9rem;
+    }
   }
 
-  ::placeholder { /* Most modern browsers support this now. */
-    color: #ddd;
-    font-size: .9rem;
-  }
 </style>

@@ -16,7 +16,7 @@
         </small>
     </div>
 
-    <div class="item-actions"></div>
+    <div class="item-actions" />
   </router-link>
 </template>
 

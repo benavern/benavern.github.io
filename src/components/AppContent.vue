@@ -12,7 +12,7 @@
     </header>
 
     <div id="content-content">
-      <slot></slot>
+      <slot />
     </div>
 
     <footer

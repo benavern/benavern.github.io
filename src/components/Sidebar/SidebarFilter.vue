@@ -1,5 +1,10 @@
 <template>
   <div id="sidebar-filter">
+    <icon
+      class="search-icon"
+      name="search"
+      size="15px"/>
+
     <input
       type="text"
       placeholder="Rechercher un sujet"
@@ -35,11 +40,19 @@ export default {
   #sidebar-filter {
     padding: 12px;
 
+    .search-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #999;
+    }
+
     input {
       width: 100%;
-      padding: 8px 10px;
+      padding: 10px 10px 10px 2rem;
       border: none;
       border-radius: .3em;
+      outline: none;
       background-color: rgba(black, .05);
 
       &::placeholder {

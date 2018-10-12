@@ -1,11 +1,21 @@
 <template>
   <aside>
     <header id="sidebar-header">
-      <router-link
-        class="header-link"
-        to="/">
-        Benjamin Caradeuc
-      </router-link>
+      <div class="header-left">
+        <icon name="settings" size="1.5em"/>
+      </div>
+
+      <div class="header-center">
+        <router-link
+          class="header-link"
+          to="/">
+          Benjamin Caradeuc
+        </router-link>
+      </div>
+
+      <div class="header-right">
+        <icon name="edit" size="1.3em"/>
+      </div>
     </header>
 
     <div id="sidebar-content">
@@ -22,7 +32,6 @@
           :user="user">
         </sidebar-list-item>
       </div>
-    </div>
     </div>
   </aside>
 </template>
@@ -42,7 +51,7 @@ export default {
   computed: {
     users () {
       return this.state.users
-        .filter(user => !this.filterVal || this.filterVal.length < 3 || !user.subject || user.subject.name.toLowerCase().includes(this.filterVal.toLowerCase()))
+        .filter(user => !this.filterVal || user.subject.name.toLowerCase().includes(this.filterVal.toLowerCase()))
     }
   },
   methods: {
@@ -64,13 +73,26 @@ aside {
   flex-direction: column;
 
   #sidebar-header {
-    padding: 10px;
+    display: flex;
     border-bottom: 1px solid rgba(black, 0.2);
     height: 50px;
     text-align: center;
 
-    .header-link {
-      text-decoration: none;
+    .header-left,
+    .header-right {
+      width: 50px;
+      padding: 12px;
+      color: #0084ff;
+    }
+
+    .header-center {
+      line-height: 50px;
+      flex: 1;
+
+      .header-link {
+        color: black;
+        text-decoration: none;
+      }
     }
   }
 

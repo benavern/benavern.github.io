@@ -7,7 +7,15 @@
       </div>
 
       <div class="header-actions">
-        header actions
+        <div class="action">
+          <icon name="phone" size="1.5em" />
+        </div>
+        <div class="action">
+          <icon name="camera" size="1.5em" />
+        </div>
+        <div class="action">
+          <icon name="info" size="1.5em" />
+        </div>
       </div>
     </header>
 
@@ -78,7 +86,15 @@ main {
     }
 
     .header-actions {
+      display: flex;
       width: 150px;
+      color: #0084ff;
+
+      .action {
+        width: 50px;
+        padding: 12px;
+        text-align: center;
+      }
     }
   }
 

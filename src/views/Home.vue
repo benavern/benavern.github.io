@@ -1,6 +1,9 @@
 <template>
   <div class="home-wrapper">
     <div class="home-content">
+
+      <icon name="person" size="8em" />
+
       <h1>Benjamin Caradeuc</h1>
 
       <p>Ce site n'est pas un vrai site de tchat, c'est une manière originale que j'ai imaginée pour me présenter.</p>

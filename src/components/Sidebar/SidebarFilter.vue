@@ -44,7 +44,7 @@ export default {
       position: absolute;
       top: 20px;
       left: 20px;
-      color: #999;
+      color: var(--dark-gray);
     }
 
     input {
@@ -53,10 +53,10 @@ export default {
       border: none;
       border-radius: .3em;
       outline: none;
-      background-color: rgba(black, .05);
+      background-color: var(--light-gray);
 
       &::placeholder {
-        color: #999;
+        color: var(--dark-gray);
         font-size: .9rem;
       }
     }

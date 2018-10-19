@@ -21,6 +21,16 @@ export default {
 </script>
 
 <style>
+:root {
+  --primary: #0084ff;
+  --secondary: #bada55;
+  --black: black;
+  --dark-gray: #999;
+  --gray: rgba(0, 0, 0, .2);
+  --light-gray: rgba(0, 0, 0, .05);
+  --white: white;
+}
+
 *,
 *:before,
 *:after {
@@ -37,7 +47,7 @@ html {
 }
 body {
   font-family: sans-serif;
-  color: #333;
+  color: var(--black);
   line-height: 1.4;
 }
 

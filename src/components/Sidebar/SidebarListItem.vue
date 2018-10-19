@@ -34,12 +34,11 @@ export default {
   display: flex;
   padding: 10px;
   text-decoration: none;
-  color: #333;
   align-items: center;
 
   &:hover,
   &.router-link-active {
-    background-color: rgba(black, .05);
+    background-color: var(--light-gray);
   }
 
   .item-avatar {
@@ -67,7 +66,7 @@ export default {
     }
 
     .subject {
-      color: #999;
+      color: var(--dark-gray);
     }
   }
 }

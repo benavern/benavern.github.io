@@ -68,13 +68,13 @@ export default {
 
 <style lang="scss" scoped>
 aside {
-  border-right: 1px solid rgba(black, 0.2);
+  border-right: 1px solid var(--gray);
   display: flex;
   flex-direction: column;
 
   #sidebar-header {
     display: flex;
-    border-bottom: 1px solid rgba(black, 0.2);
+    border-bottom: 1px solid var(--gray);
     height: 50px;
     text-align: center;
 
@@ -82,7 +82,7 @@ aside {
     .header-right {
       width: 50px;
       padding: 12px;
-      color: #0084ff;
+      color: var(--primary);
     }
 
     .header-center {
@@ -90,7 +90,7 @@ aside {
       flex: 1;
 
       .header-link {
-        color: black;
+        color: var(--black);
         text-decoration: none;
       }
     }

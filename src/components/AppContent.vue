@@ -70,7 +70,7 @@ main {
 
   #content-header {
     display: flex;
-    border-bottom: 1px solid rgba(black, .2);
+    border-bottom: 1px solid var(--gray);
     height: 50px;
 
     .header-title {
@@ -81,14 +81,14 @@ main {
       text-align: center;
 
       small {
-        color: #999;
+        color: var(--dark-gray);
       }
     }
 
     .header-actions {
       display: flex;
       width: 150px;
-      color: #0084ff;
+      color: var(--primary);
 
       .action {
         width: 50px;
@@ -106,7 +106,7 @@ main {
 
   #content-footer {
     display: flex;
-    border-top: 1px solid rgba(black, .2);
+    border-top: 1px solid var(--gray);
     height: 50px;
 
     .message-input {

@@ -82,20 +82,20 @@ export default {
       justify-content: flex-end;
 
       .message{
-        background-color: #0084ff;
-        color: white;
+        background-color: var(--primary);
+        color: var(--white);
         border-radius: 1em 1em .3em 1em;
       }
 
       &.user .message {
-        background-color: #bada55;
-        color: white;
+        background-color: var(--secondary);
+        color: var(--white);
       }
 
     }
 
     &.received .message {
-      background-color: rgba(black, .05);
+      background-color: var(--light-gray);
       border-radius: 1em 1em 1em .3em;
     }
 

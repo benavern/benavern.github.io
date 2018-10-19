@@ -31,7 +31,7 @@ export default {
     transform: translate(-50%, -50%);
     width: 75%;
     text-align: center;
-    color: #999;
+    color: var(--dark-gray);
 
     h1 {
       font-size: 3rem;

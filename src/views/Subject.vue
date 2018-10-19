@@ -43,6 +43,10 @@ export default {
   },
   methods: {
     start() {
+      // display first message on start
+      this.displayMessage(this.subjectMessages[this.subjectIndex++])
+
+      // delay the other messages
       this.interval = setInterval(() => {
         const message = this.subjectMessages[this.subjectIndex++]
         if (message) {

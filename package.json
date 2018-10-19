@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo 'testing is not beeing confident'",
     "dev": "parcel src/index.html",
+    "prebuild": "npm run clean",
     "build": "parcel build src/index.html",
-    "predeploy": "rimraf dist && npm run build",
+    "clean": "rimraf dist .cache",
+    "preserve": "npm run build",
+    "serve": "http-server dist",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist -b master"
   },
   "repository": {
@@ -28,7 +32,7 @@
     "@vue/component-compiler-utils": "^2.2.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "eslint": "^5.6.1",
+    "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
@@ -36,10 +40,11 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^4.7.1",
     "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.10.2",
+    "http-server": "^0.11.1",
+    "parcel-bundler": "^1.10.3",
     "parcel-plugin-eslint": "^1.0.4",
     "rimraf": "^2.6.2",
-    "sass": "^1.14.1",
+    "sass": "^1.14.3",
     "vue-template-compiler": "^2.5.17"
   },
   "dependencies": {

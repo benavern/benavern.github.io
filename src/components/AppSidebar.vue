@@ -90,7 +90,6 @@ aside {
       flex: 1;
 
       .header-link {
-        color: var(--black);
         text-decoration: none;
       }
     }

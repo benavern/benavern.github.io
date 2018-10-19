@@ -41,6 +41,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 html {
   font-size: 16px;
@@ -53,6 +54,12 @@ body {
 
 [v-cloak] {
   display: none;
+}
+
+a,
+a:visited {
+  color: inherit;
+  text-decoration: underline;
 }
 </style>
 

@@ -10,7 +10,8 @@ export default new store.Store({
   state: {
     users: [],
     subjects,
-    messages: []
+    messages: [],
+    mainSidebar: null
   },
   actions: {
     FETCH_USERS ({ state, commit }) {
@@ -38,6 +39,14 @@ export default new store.Store({
     },
     RESET_MESSAGES (state) {
       Vue.set(state, 'messages', [])
+    },
+    TOGGLE_SIDEBAR (state, type) {
+      const mainSidebarTypes = ['Info', 'Camera', 'Phone']
+      if (!mainSidebarTypes.includes(type) || type === state.mainSidebar) {
+        Vue.set(state, 'mainSidebar', null)
+      } else {
+        Vue.set(state, 'mainSidebar', type)
+      }
     }
   }
 })

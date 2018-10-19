@@ -69,7 +69,7 @@ a:visited {
   height: 100%;
 }
 #app-sidebar {
-  width: 25%;
+  width: 25vw;
   max-width: 400px;
 }
 #app-content {

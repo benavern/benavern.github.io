@@ -35,6 +35,7 @@ export default {
   padding: 10px;
   text-decoration: none;
   align-items: center;
+  color: var(--black);
 
   &:hover,
   &.router-link-active {

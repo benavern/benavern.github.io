@@ -137,7 +137,11 @@ main #content-footer .message-input[data-v-b8495f]{flex:1
 }
 .subject-content[data-v-e1260f]{padding:20px 10px
 }
-.subject-content .message-wrapper[data-v-e1260f]{margin:3px 0;display:flex
+.subject-content .message-wrapper[data-v-e1260f]{margin:3px 0;display:flex;align-items:flex-end
+}
+.subject-content .message-wrapper .user-avatar[data-v-e1260f]{width:1.5em;margin-right:.5em
+}
+.subject-content .message-wrapper .user-avatar img[data-v-e1260f]{height:1.5em;border-radius:.6em;position:relative;margin-bottom:-.5em
 }
 .subject-content .message-wrapper .message[data-v-e1260f]{padding:.2em 1em;max-width:70%
 }

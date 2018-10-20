@@ -3,7 +3,7 @@
     <header id="sidebar-header">
       <div
         class="header-left"
-        @focus="toggleDropdown"
+        @focus="showDropdown"
         @blur="hideDropdown"
         tabindex="1">
         <icon name="settings" size="1.5em"/>
@@ -14,13 +14,28 @@
         class="dropdown">
         <ul>
           <li>
-            <a href="https://twitter.com/benavern" target="_blank">Twitter</a>
+            <a
+              href="https://twitter.com/benavern"
+              class="dropdown-link"
+              target="_blank">
+              Twitter
+            </a>
           </li>
           <li>
-            <a href="https://github.com/benavern" target="_blank">Github</a>
+            <a
+              href="https://github.com/benavern"
+              class="dropdown-link"
+              target="_blank">
+              Github
+            </a>
           </li>
           <li>
-            <a href="https://benjamin.caradeuc.info" target="_blank">benjamin.caradeuc.info</a>
+            <a
+              href="https://benjamin.caradeuc.info"
+              class="dropdown-link"
+              target="_blank">
+              benjamin.caradeuc.info
+            </a>
           </li>
         </ul>
       </div>
@@ -88,11 +103,14 @@ export default {
         this.filterVal = val
       }
     },
-    hideDropdown () {
-      this.dropdownVisible = false
-    },
-    toggleDropdown () {
+
+    showDropdown () {
       this.dropdownVisible = !this.dropdownVisible
+    },
+    hideDropdown (e) {
+      if (!e.relatedTarget || !e.relatedTarget.classList.contains('dropdown-link')) {
+        this.dropdownVisible = false
+      }
     }
   }
 }

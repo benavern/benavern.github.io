@@ -10,21 +10,27 @@
         <div
           class="action"
           @click="toggleSidebar('Phone')"
-          :class="{active: mainSidebar === 'Phone'}">
+          :class="{active: mainSidebar === 'Phone'}"
+          title="Contact par téléphone"
+          tabindex="1">
           <icon name="phone" size="1.5em" />
         </div>
 
         <div
           class="action"
           @click="toggleSidebar('Camera')"
-          :class="{active: mainSidebar === 'Camera'}">
+          :class="{active: mainSidebar === 'Camera'}"
+          title="Contact par visio"
+          tabindex="1">
           <icon name="camera" size="1.5em" />
         </div>
 
         <div
           class="action"
           @click="toggleSidebar('Info')"
-          :class="{active: mainSidebar === 'Info'}">
+          :class="{active: mainSidebar === 'Info'}"
+          title="Plus d'informations"
+          tabindex="1">
           <icon name="info" size="1.5em" />
         </div>
       </div>

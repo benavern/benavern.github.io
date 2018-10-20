@@ -1,8 +1,28 @@
 <template>
   <aside>
     <header id="sidebar-header">
-      <div class="header-left">
+      <div
+        class="header-left"
+        @focus="toggleDropdown"
+        @blur="hideDropdown"
+        tabindex="1">
         <icon name="settings" size="1.5em"/>
+      </div>
+
+      <div
+        v-show="dropdownVisible"
+        class="dropdown">
+        <ul>
+          <li>
+            <a href="https://twitter.com/benavern" target="_blank">Twitter</a>
+          </li>
+          <li>
+            <a href="https://github.com/benavern" target="_blank">Github</a>
+          </li>
+          <li>
+            <a href="https://benjamin.caradeuc.info" target="_blank">benjamin.caradeuc.info</a>
+          </li>
+        </ul>
       </div>
 
       <div class="header-center">
@@ -13,9 +33,14 @@
         </router-link>
       </div>
 
-      <div class="header-right">
+      <a
+        href="https://benjamin.caradeuc.info"
+        target="_blank"
+        class="header-right"
+        title="Site web de Benjamin Caradeuc"
+        tabindex="1">
         <icon name="edit" size="1.3em"/>
-      </div>
+      </a>
     </header>
 
     <div id="sidebar-content">
@@ -45,7 +70,8 @@ export default {
   components: { SidebarListItem, SidebarFilter },
   data () {
     return {
-      filterVal: null
+      filterVal: null,
+      dropdownVisible: false
     }
   },
   computed: {
@@ -61,6 +87,12 @@ export default {
       } else {
         this.filterVal = val
       }
+    },
+    hideDropdown () {
+      this.dropdownVisible = false
+    },
+    toggleDropdown () {
+      this.dropdownVisible = !this.dropdownVisible
     }
   }
 }
@@ -73,6 +105,7 @@ aside {
   flex-direction: column;
 
   #sidebar-header {
+    position: relative;
     display: flex;
     border-bottom: 1px solid var(--gray);
     height: 50px;
@@ -83,6 +116,63 @@ aside {
       width: 50px;
       padding: 12px;
       color: var(--primary);
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: var(--light-gray);
+      }
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: 1;
+      left: 5px;
+      top: 100%;
+      font-size: .9rem;
+      background-color: var(--white);
+      border: 1px solid var(--gray);
+      border-radius: .2em;
+      box-shadow: 0 0 1em var(--gray);
+      min-width: 200px;
+      text-align: left;
+      padding: .5em 0;
+
+      &:before,
+      &:after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        bottom: 100%;
+        left: 12px;
+        border: .5em solid transparent;
+        border-bottom-color: var(--white)
+      }
+
+      &:before {
+        z-index: 0;
+        margin-bottom: 1px;
+        border-bottom-color: var(--gray)
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          a {
+            display: block;
+            padding: .25em 1.5em;
+            text-decoration: none;
+
+            &:hover {
+              background-color: var(--primary);
+              color: var(--white)
+            }
+          }
+        }
+      }
     }
 
     .header-center {

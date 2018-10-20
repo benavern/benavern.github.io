@@ -68,6 +68,11 @@ const SidebarComponents = {
 export default {
   name: 'AppContent',
   components: { MessageInput },
+  watch: {
+    '$route' () {
+      this.toggleSidebar()
+    }
+  },
   computed: {
     headerTitle () {
       let titleContent

@@ -1,9 +1,14 @@
 <template>
 <div class="subject-content">
   <div
-    v-for="message in messages"
+    v-for="(message, i) in messages"
     :key="message.name"
     :class="['message-wrapper', message.received ? 'received' : 'sent', {'user' : message.user}]">
+    <div class="user-avatar">
+      <img
+        :src="currentUserAvatar"
+        v-if="message.received && (!messages[i+1] || !messages[i+1].received)"/>
+    </div>
     <div
       class="message"
       v-html="message.text">
@@ -39,6 +44,10 @@ export default {
     },
     messages () {
       return this.state.messages
+    },
+    currentUserAvatar () {
+      const user = this.state.users.find(user => user.subject.name === this.subject)
+      return user && user.picture.thumbnail
     }
   },
   methods: {
@@ -76,6 +85,19 @@ export default {
   .message-wrapper {
     margin: 3px 0;
     display: flex;
+    align-items: flex-end;
+
+    .user-avatar {
+      width: 1.5em;
+      margin-right: .5em;
+
+      img {
+        height: 1.5em;
+        border-radius: .6em;
+        position: relative;
+        margin-bottom: -.5em;
+      }
+    }
 
     .message {
       padding: .2em 1em;

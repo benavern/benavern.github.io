@@ -48,6 +48,8 @@ html {
 }
 body {
   font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   color: var(--black);
   line-height: 1.4;
 }

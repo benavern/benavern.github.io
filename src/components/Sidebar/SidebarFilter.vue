@@ -40,6 +40,10 @@ export default {
   #sidebar-filter {
     padding: 12px;
 
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
     .search-icon {
       position: absolute;
       top: 20px;

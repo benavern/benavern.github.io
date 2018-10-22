@@ -4,7 +4,7 @@
     v-for="(message, i) in messages"
     :key="message.name"
     :class="['message-wrapper', message.received ? 'received' : 'sent', {'user' : message.user}]">
-    <div class="user-avatar">
+    <div class="user-avatar hide-mobile">
       <img
         :src="currentUserAvatar"
         v-if="message.received && (!messages[i+1] || !messages[i+1].received)"/>
@@ -90,6 +90,10 @@ export default {
     .user-avatar {
       width: 1.5em;
       margin-right: .5em;
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
 
       img {
         height: 1.5em;

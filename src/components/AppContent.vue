@@ -8,7 +8,7 @@
 
       <div class="header-actions">
         <div
-          class="action"
+          class="action phone"
           @click="toggleSidebar('Phone')"
           :class="{active: mainSidebar === 'Phone'}"
           title="Contact par téléphone"
@@ -17,7 +17,7 @@
         </div>
 
         <div
-          class="action"
+          class="action camera"
           @click="toggleSidebar('Camera')"
           :class="{active: mainSidebar === 'Camera'}"
           title="Contact par visio"
@@ -26,7 +26,7 @@
         </div>
 
         <div
-          class="action"
+          class="action info"
           @click="toggleSidebar('Info')"
           :class="{active: mainSidebar === 'Info'}"
           title="Plus d'informations"
@@ -131,6 +131,11 @@ main {
       line-height: 1;
       text-align: center;
 
+      @media screen and (max-width: 768px) {
+        padding-left: 10px;
+        text-align: left;
+      }
+
       small {
         color: var(--dark-gray);
       }
@@ -141,6 +146,10 @@ main {
       width: 150px;
       color: var(--primary);
 
+      @media screen and (max-width: 768px) {
+        width: 50px;
+      }
+
       .action {
         width: 50px;
         padding: 12px;
@@ -150,6 +159,13 @@ main {
         &.active{
           cursor: pointer;
           background-color: var(--light-gray);
+        }
+
+        @media screen and (max-width: 768px) {
+          &.camera,
+          &.phone {
+            display: none;
+          }
         }
       }
     }
@@ -170,6 +186,17 @@ main {
       width: 25vw;
       max-width: 400px;
       border-left: 1px solid var(--gray);
+    }
+
+    @media screen and (max-width: 768px) {
+      #main-sidebar {
+        position: absolute;
+        top: 0;
+        right:0;
+        bottom: 0;
+        width: 98%;
+        background-color: var(--white);
+      }
     }
   }
 

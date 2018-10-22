@@ -44,6 +44,10 @@ export default {
   .item-avatar {
     margin-right: 10px;
 
+    @media screen and (max-width: 768px) {
+      margin: auto;
+    }
+
     img {
       display: block;
       border-radius: 50px;
@@ -55,6 +59,10 @@ export default {
   .item-content {
     position: relative;
     overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     .full-name,
     .subject {

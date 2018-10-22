@@ -118,9 +118,15 @@ export default {
 
 <style lang="scss" scoped>
 aside {
+  width: 25vw;
+  max-width: 400px;
   border-right: 1px solid var(--gray);
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
 
   #sidebar-header {
     position: relative;
@@ -199,6 +205,16 @@ aside {
 
       .header-link {
         text-decoration: none;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header-center,
+      .header-right {
+        display: none;
+      }
+      .header-left {
+        flex: 1;
       }
     }
   }

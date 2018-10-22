@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style>
+
+/* Variables definition */
 :root {
   --primary: #0084ff;
   --secondary: #bada55;
@@ -31,6 +33,7 @@ export default {
   --white: white;
 }
 
+/* Reset */
 *,
 *:before,
 *:after {
@@ -54,14 +57,15 @@ body {
   line-height: 1.4;
 }
 
-[v-cloak] {
-  display: none;
-}
-
 a,
 a:visited {
   color: inherit;
   text-decoration: underline;
+}
+
+/* Initial load */
+[v-cloak] {
+  display: none;
 }
 </style>
 
@@ -69,10 +73,6 @@ a:visited {
 #app-wrapper {
   display: flex;
   height: 100%;
-}
-#app-sidebar {
-  width: 25vw;
-  max-width: 400px;
 }
 #app-content {
   flex: 1;
